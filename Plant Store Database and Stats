@@ -1,0 +1,24 @@
+CREATE TABlE plant_store_database (id INTEGER PRIMARY KEY, "name" TEXT, cost INTEGER, selling_price INTEGER, shelf INTEGER);
+INSERT INTO plant_store_database VALUES(1, "Monstera Deliciosa", 20, 50, 1);
+INSERT INTO plant_store_database VALUES(2, "Yellow Variegated Monstera D.",100,300,1);
+insert into plant_store_database VALUES(3, "White Variegated Monstera D.", 75, 250, 1);
+insert into plant_store_database VALUES(4, "Rhaphidophra Tetrasperma", 20,45,2);
+insert into plant_store_database VALUES(5, "Monstera Adansonii", 15, 35, 2);
+insert into plant_store_database VALUES(6, "Pink Princess Philodendron", 80, 190, 3);
+insert into plant_store_database VALUES(7, "White Wizard Philodendron", 110, 300, 3);
+insert into plant_store_database VALUES(8, "White Knight Philodendron", 100, 275,3);
+insert into plant_store_database VALUES(9, "Ficus Elastica Ruby", 20, 60, 4);
+insert into plant_store_database VALUES(10, "Begonia Maculata", 30, 90,4);
+insert into plant_store_database VALUES(11, "String of Hearts", 20, 45, 4);
+insert into plant_store_database VALUES(12, "String of Dolphins", 25, 50, 4);
+insert into plant_Store_database VALUES(13, "String of Pearls", 12, 28, 4);
+insert into plant_store_database VALUES(14, "Jade", 8, 18,5);
+insert into plant_store_database VALUES(15, "Pineapple Sage", 2, 5, 6);
+
+SELECT* from plant_store_database order by selling_price;
+SELECT sum(selling_price) from plant_store_database;
+SELECT avg(selling_price) FROM plant_store_database;
+SELECT min(selling_price) FROM plant_store_database;
+SELECT max(selling_price) FROM plant_store_database;
+SELECT * FROM plant_store_database WHERE selling_price>150;
+SELECT * FROM plant_store_database WHERE cost<=80 ORDER BY cost ASC;
