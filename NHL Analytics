@@ -1,0 +1,72 @@
+#For this project I downloaded National Hockey League (NHL) data from Kaggle
+#Next, added the NHL database to the SQL software.
+#I then performed analytics on the data using SQL.
+
+#1. I determined the name, position, and nationality of players ordered by nationality.
+SELECT firstname
+, lastname
+, primaryPosition
+, nationality
+FROM player_info
+ORDER BY nationality;
+
+#2. I determined the average penalty minutes (PIM) for the Blue Jackets using the like operator.
+SELECT  avg(PIM)
+FROM game_team_stats teamstats
+LEFT JOIN team_info teaminfo
+ON teamstats.team_id=teaminfo.team_id
+WHERE teamname LIKE '%jackets%'
+
+#3. I queried the data and got the name, position, and teamname of the NHL.
+SELECT firstname, lastname, primaryposition, teamname
+FROM game_skater_stats skater
+JOIN player_info player
+ON skater.player_id=player.player_id
+JOIN team_info team
+ON skater.team_id=team.team_id;
+
+#4. I used the following SQL to find the goals, PIM, teamname and headcoach in descending order.
+SELECT distinct date_time_GMT
+, teamname
+, goals
+, PIM
+, won
+, head_coach
+FROM game_team_stats teamstats
+JOIN game
+ON teamstats.game_id=game.game_id
+JOIN team_info
+ON teamstats.team_id=team_info.team_id
+ORDER BY date_time_GMT desc;
+
+#5 Found the name, team abbreviation, number of goals and position of players where goals scored >0 in descending order.
+SELECT distinct firstname
+, lastname
+, abbreviation
+, primaryposition
+, goals
+FROM game_skater_stats skater
+JOIN player_info player
+ON skater.player_id=player.player_id
+JOIN team_info
+ON skater.team_id=team_info.team_id
+WHERE goals>0
+ORDER by goals desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
